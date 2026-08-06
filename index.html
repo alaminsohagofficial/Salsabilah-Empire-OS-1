@@ -79,6 +79,11 @@
             text-transform: uppercase;
             border-radius: 4px;
             margin: 10px;
+            transition: opacity 0.2s;
+        }
+
+        .action-btn:hover {
+            opacity: 0.9;
         }
 
         .grid {
@@ -87,6 +92,7 @@
             gap: 20px;
             max-width: 850px;
             margin: 0 auto 40px;
+            flex-wrap: wrap;
         }
 
         .card {
@@ -96,9 +102,14 @@
             text-align: left;
             border-left: 4px solid var(--gold);
             flex: 1;
+            min-width: 280px;
         }
 
-        .card h3 { color: var(--gold); margin-top: 0; font-size: 1rem; }
+        .card h3 { 
+            color: var(--gold); 
+            margin-top: 0; 
+            font-size: 1rem; 
+        }
 
         .footer {
             padding: 40px;
@@ -112,123 +123,6 @@
 
 <section class="hero">
     <div class="quote">"LOGIC RULES THE GLOBE"</div>
-    <button class="action-btn" onclick="playProclamation()">🔊 Voice Announcement</button>
-</section>
-
-<div class="dashboard">
-    <h3 style="color: var(--gold); font-size: 0.8rem; letter-spacing: 4px;">SYSTEM ASSET VALUATION</h3>
-    <div class="asset-value">$ <span id="counter">0</span></div>
-    
-    <p style="font-weight: bold; color: #cbd5e1;">
-        Founder: MD. AL AMIN SOHAG | Salsabilah Amin Empires LTD 👑
-    </p>
-
-    <div class="software-box">
-        <h4 style="color: var(--green); margin: 0 0 10px;">THE DIGIT THEORY ENGINE v3.0</h4>
-        <input type="number" id="theoryInput" placeholder="Enter data for Justice calculation...">
-        <br>
-        <button class="action-btn" onclick="runTheory()">Execute Engine</button>
-        <div id="resultDisplay" style="margin-top: 15px; font-weight: bold; color: var(--gold);"></div>
-    </div>
-</div>
-
-<div class="grid">
-    <div class="card">
-        <h3>Vision & Innovation</h3>
-        <p style="font-size: 0.9rem;">Utilizing 'The Digit Theory' for redefining computational fairness and global data filtration.</p>
-    </div>
-    <div class="card">
-        <h3>Empire Scale</h3>
-        <p style="font-size: 0.9rem;">Strategic growth through Salsabilah-Empire-OS Engine, bridging Chuadanga to the world.</p>
-    </div>
-</div>
-
-<div class="footer">
-    <p>© 2026 SALSABILAH AMIN EMPIRES LTD. | POWERED BY MD. AL AMIN SOHAG</p>
-</div>
-
-<script>
-    function playProclamation() {
-        const text = "Official announcement from MD. AL AMIN SOHAG. Welcome to Salsabilah Amin Empires. My logic, the Digit Theory, rules the global market.";
-        const msg = new SpeechSynthesisUtterance(text);
-        msg.rate = 0.9;
-        window.speechSynthesis.speak(msg);
-    }
-
-    function runTheory() {
-        const input = document.getElementById('theoryInput').value;
-        if(input) {
-            const result = input * 2.5; // Justice Multiplier
-            document.getElementById('resultDisplay').innerHTML = "Theory Result: " + result.toLocaleString() + " [Justice Applied]";
-        }
-    }
-
-    let count = 0;
-    const interval = setInterval(() => {
-        count += 2500;
-        document.getElementById('counter').innerText = count.toLocaleString();
-        if (count >= 125000) {
-            document.getElementById('counter').innerText = "125,000";
-            clearInterval(interval);
-        }
-    }, 40);
-</script>
-
-</body>
-</html>
-
-<div class="footer">
-    <p>© 2026 SALSABILAH AMIN EMPIRES LTD. | POWERED BY MD. AL AMIN SOHAG</p>
-</div>
-
-<script>
-    function playProclamation() {
-        const text = "Official announcement from MD. AL AMIN SOHAG. Welcome to Salsabilah Amin Empires. My logic, the Digit Theory, rules the global market.";
-        const msg = new SpeechSynthesisUtterance(text);
-        msg.rate = 0.9;
-        window.speechSynthesis.speak(msg);
-    }
-
-    function runTheory() {
-        const input = document.getElementById('theoryInput').value;
-        if(input) {
-            const result = input * 2.5; // Justice Multiplier
-            document.getElementById('resultDisplay').innerHTML = "Theory Result: " + result.toLocaleString() + " [Justice Applied]";
-        }
-    }
-
-    let count = 0;
-    const interval = setInterval(() => {
-        count += 2500;
-        document.getElementById('counter').innerText = count.toLocaleString();
-        if (count >= 125000) {
-            document.getElementById('counter').innerText = "125,000";
-            clearInterval(interval);
-        }
-    }, 40);
-</script>
-
-</body>
-</html>
-            border-radius: 5px;
-            text-align: left;
-            border-left: 4px solid var(--gold);
-        }
-
-        .card h3 { color: var(--gold); margin-top: 0; font-size: 1rem; }
-
-        .footer {
-            padding: 40px;
-            border-top: 1px solid #1e293b;
-            color: #475569;
-            font-size: 0.8rem;
-        }
-    </style>
-</head>
-<body>
-
-<section class="hero">
-    <div class="quote">"Logic Rules the Globe."</div>
     <button class="action-btn" onclick="playProclamation()" style="background: transparent; color: var(--gold); border: 2px solid var(--gold);">
         🔊 Listen to Official Proclamation
     </button>
@@ -264,7 +158,7 @@
 </div>
 
 <div class="footer">
-    <p>© 2026 SALSABILAH AMIN EMPIRES LTD. | DESIGNED BY MD. AL AMIN SOHAG</p>
+    <p>© 2026 SALSABILAH AMIN EMPIRES LTD. | POWERED & DESIGNED BY MD. AL AMIN SOHAG</p>
 </div>
 
 <script>
@@ -279,7 +173,6 @@
     function runTheory() {
         let input = document.getElementById('theoryInput').value;
         if(input) {
-            // Digit Theory Implementation
             let result = input * 2.5; 
             document.getElementById('resultDisplay').innerHTML = "Theory Output: " + result.toLocaleString() + " <br><span style='font-size:0.8rem; color: #34A853;'>[System Justice Multiplier Applied]</span>";
         } else {
